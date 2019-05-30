@@ -18,11 +18,12 @@ import co.goinside.samwell.services.ClientOrderService;
 @RestController
 public class ClientOrderController {
 
+	@Autowired
 	private ClientOrderService clientOrderService;
 
 	@RequestMapping(value = "/clients")
 	public Map<Integer, ClientOrder> showClients() {
-		return clientOrderService.getSamwellOrdersList();
+		return clientOrderService.showClients();
 	}
 
 	@RequestMapping(value = "/addClient", method = RequestMethod.POST)
@@ -44,13 +45,13 @@ public class ClientOrderController {
 	
 	@RequestMapping(value = "/findClientById/{id}")
 	public ClientOrder findClientById(@PathVariable(required = true) int id ) {
-		return clientOrderService.getClientNameById(id);
+		return clientOrderService.getClient(id);
 	}
 	
 	@RequestMapping(value = "/submitOrderList")
 	public void submitOrderList(HttpServletResponse httpResponse) {
 		try {
-			clientOrderService.submitOrderList(clientOrderService.getSamwellOrdersList());
+			clientOrderService.submitOrderList();
 			httpResponse.sendRedirect("/checkOrder");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -93,15 +94,24 @@ public class ClientOrderController {
 			e.printStackTrace();
 		}
 	}
-
+	
+	
 	// GETTERS & SETTERS
+
 	public ClientOrderService getClientOrderService() {
 		return clientOrderService;
 	}
-
-	@Autowired
+	
+	
 	public void setClientOrderService(ClientOrderService clientOrderService) {
 		this.clientOrderService = clientOrderService;
 	}
+
+	
+	
+	
+	
+	
+	
 
 }
