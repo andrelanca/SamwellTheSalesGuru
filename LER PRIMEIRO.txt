@@ -1,6 +1,12 @@
-Para utilizar os diferentes HTTP Verbs, utilizei a ferramenta PostMan
+1- Para correr tudo como desenhei, abrir a pasta "SamwellBusinessMan" como projeto maven. e correr no terminal "mvn spring-boot:run"
+   assim o servidor estará ligado e a api pronta a ser consumida no localhost:8080.
+2- Para ver o front end do projeto abrir no browser a pasta "front end" que tem algumas das funcionalidades. 
+Como por exemplo, ver a lista de orders (users.html) e adicionar clientes (index.html).
 
-Popular a lista: (POST)
+Todas as outras operações existem na api na parte do backend prontas para serem consumidas, tais como:
+
+
+Popular a lista: (GET)
 http://localhost:8080/populateListForTests
 
 Aceder à lista de clientes: (GET)
@@ -19,3 +25,11 @@ http://localhost:8080/submitOrderList (faz redirect para a lista de encomendas q
 Consultar lista de encomendas enviadas ao fornecedor: (GET)
 http://localhost:8080/checkOrder
 
+
+Para utilizar os diferentes HTTP Verbs, utilizei a ferramenta PostMan para verem tudo a acontecer.
+
+
+--------
+
+Se utilizarem o localhost:8080 terão uma experiência completa. 
+Desde já desculpem não ter terminado as operações de remover clientes por ID, adicionar a encomenda e fornecer a lista do fornecedor.

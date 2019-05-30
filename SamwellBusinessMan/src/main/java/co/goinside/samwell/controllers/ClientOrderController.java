@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,11 +22,13 @@ public class ClientOrderController {
 	@Autowired
 	private ClientOrderService clientOrderService;
 
+	@CrossOrigin
 	@RequestMapping(value = "/clients")
 	public Map<Integer, ClientOrder> showClients() {
 		return clientOrderService.showClients();
 	}
 
+	@CrossOrigin
 	@RequestMapping(value = "/addClient", method = RequestMethod.POST)
 	public void addClient(@RequestParam(required = true) String bookTitle,
 			@RequestParam(required = true) int bookQuantity, @RequestParam(required = true) double bookPrice,
@@ -46,16 +49,19 @@ public class ClientOrderController {
 
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/removeClient/{orderId}", method = RequestMethod.DELETE)
 	public void removeClient(@PathVariable(required = true) int orderId) {
 		clientOrderService.removeOrder(orderId);
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/findClientById/{id}")
 	public ClientOrder findClientById(@PathVariable(required = true) int id ) {
 		return clientOrderService.getClient(id);
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/submitOrderList")
 	public void submitOrderList(HttpServletResponse httpResponse) {
 		try {
@@ -67,6 +73,7 @@ public class ClientOrderController {
 		}
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/checkOrder")
 	public Map<Integer, ClientOrder> checkOrder(HttpServletResponse httpResponse){
 		return clientOrderService.getSuplierOrdersList();
@@ -83,6 +90,7 @@ public class ClientOrderController {
 	
 	
 	// This method is just to populate my list with some clients
+	@CrossOrigin
 	@RequestMapping(value = "/populateListForTests")
 	public void populateListForTests(HttpServletResponse httpResponse) {
 
