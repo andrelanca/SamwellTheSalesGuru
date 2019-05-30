@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Error Page</title>
+</head>
+
+<body>
+	<h4>Maybe this will help you:</h4>
+	<a href="./populateListForTests">Populate List For Tests</a><br>
+	<a href="./clients">Check the list of orders</a><br>
+	<p><b>If you want to add a new user:</b><br>
+	Is a Post method, use Postman(for example) to test it (in the query you need to put bookTitle, bookQuantity, bookPrice, clientName, clientPhoneNum, clientAddress)<br>
+	<b>Example:</b><br>( http://localhost:8080/addClient?bookTitle=As%20Cr%C3%B4nicas%20de%20Gelo%20e%20Fogo&bookQuantity=10&bookPrice=29.45&clientName=Andre%20Lanca&clientPhoneNum=968312552&clientAddress=Rua%20das%20Pratas )
+	</p>
+	<p>If you want to remove a client, http://localhost:8080/removeClient/ + the id of the client order</p>
+	<a href="./submitOrderList">Submit orders to the supplier</a><br>
+	<a href="./checkOrder">Check your orders to the supplier</a>
+</body>
+
+</html>
