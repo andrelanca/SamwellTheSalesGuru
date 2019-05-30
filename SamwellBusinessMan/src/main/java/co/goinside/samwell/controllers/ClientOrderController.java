@@ -30,11 +30,19 @@ public class ClientOrderController {
 	public void addClient(@RequestParam(required = true) String bookTitle,
 			@RequestParam(required = true) int bookQuantity, @RequestParam(required = true) double bookPrice,
 			@RequestParam(required = true) String clientName, @RequestParam(required = true) int clientPhoneNum,
-			@RequestParam(required = true) String clientAddress) {
+			@RequestParam(required = true) String clientAddress, HttpServletResponse httpResponse) {
 
+		try {
 		clientOrderService.addOrder(
 				new ClientOrder(bookTitle, bookQuantity, bookPrice, clientName, clientPhoneNum, clientAddress)
 		);
+		
+		httpResponse.sendRedirect("/clients");
+		
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 	
