@@ -1,1 +1,34 @@
-http://localhost:8080/populateListForTests - to populate list with some entries
+1- Para correr tudo como desenhei, deve abrir a pasta "SamwellBusinessMan" como projeto maven e correr no terminal (deste diretório) "mvn spring-boot:run" 
+   assim o servidor estará ligado e a api pronta a ser consumida no localhost:8080. (no meu caso, no terminal aparece: C:\Users\User01\Desktop\final\SamwellTheSalesGuru\SamwellBusinessMan> 
+   e aqui escreveria "mvn spring-boot:run" [sem as áspas])
+2- Para ver a aplicação do projeto, abrir no browser a pasta "frontend" e clicar por exemplo no ficheiro "index.html".
+
+
+Todas as operações que existem na api na parte do backend prontas para serem consumidas, são:
+
+--------
+
+Se utilizarem no browser "localhost:8080/populateListForTests" a lista de orders será populada com 4 entradas, para efeitos de testes 
+(sendo possível de qualquer forma, adicionar e remover clientes). 
+
+--------
+
+APP FEATURES:
+
+1- Adicionar orders, obrigatório preencher todos os campos (No menu onde diz, "Add Order")
+2- Consultar a lista de orders que o Samwell tem prontas a serem enviadas (No menu onde diz, "Orders")
+3- Se o Samwell se tiver enganado a escrever alguma das orders, pode apagá-la pelo ID da order. (No menu onde diz, "Orders", descendo até ao campo para introduzir o id da order e clicando em "Delete")
+4- Pode enviar então a sua lista de orders finalizada ao seu fornecedor, clicando no botão "Send to Supplier" (No menu onde diz, "Orders")
+5- Pode consultar a encomenda que fez ao fornecedor, acedendo (pelo menu), onde diz "Supplier". Em que aparece também a informação de quanto vai custar cada order.
+
+--------
+
+A App pode ser escalada pois tem mais algumas features que não foram implementadas a nível do front-end como por exemplo procurar a order pelo seu ID (existindo essa opção no backend).
+E também a nível de front-end escalar a User Interface e User eXperience. Estando completamente desacopulado do back-end, estas alterações serão mais faceis de realizar.
+
+--------
+
+Qualquer dúvida:
+
+andrelanca14@gmail.com
+andre.lanca@adentis.pt
