@@ -16,36 +16,49 @@
 </head>
 <body>
 
-    <div id="wrapper">
+        <div id="header">
+            <ul>
+                <li><a href="./index.html">Add Order</a></li>
+                <li><a href="./orders.html">Orders</a></li>
+                <li><a href="./supplier.html">Supplier</a></li>
+            </ul>
+        </div>
+
+    <div class="wrapper">
         <form>
+            <p style="color:red"><b><i>All fields are required</i></b></p>
                 <div class="form-group">
                   <label>Book Title</label>
-                  <input type="text" class="form-control" id="bookTitle" placeholder="Enter book title">
+                  <input type="text" class="form-control" id="bookTitle" placeholder="Enter book title" required="true">
                 </div>
                 <div class="form-group">
                   <label>Book Quantity</label>
-                  <input type="text" class="form-control" id="bookQuantity" placeholder="Enter amount of books">
+                  <input type="number" class="form-control" id="bookQuantity" placeholder="Enter amount of books" required="true">
                 </div>
                 <div class="form-group">
                     <label>Book Price</label>
-                    <input type="text" class="form-control" id="bookPrice" placeholder="Enter book price (Example. 20.00)">
+                    <input type="number" class="form-control" id="bookPrice" placeholder="Enter book price (Example. 20.00)" required="true">
                 </div>
                 <div class="form-group">
                     <label>Client Name</label>
-                    <input type="text" class="form-control" id="clientName" placeholder="Enter Client Name">
+                    <input type="text" class="form-control" id="clientName" placeholder="Enter Client Name" required="true">
                 </div>
                 <div class="form-group">
                     <label>Client Phone Number</label>
-                    <input type="text" class="form-control" id="clientPhoneNum" placeholder="Enter Client Phone Number">
+                    <input type="number" class="form-control" id="clientPhoneNum" placeholder="Enter Client Phone Number" required="true">
                 </div>
                 <div class="form-group">
                     <label>Client Address</label>
-                    <input type="text" class="form-control" id="clientAddress" placeholder="Enter Client Address">
+                    <input type="text" class="form-control" id="clientAddress" placeholder="Enter Client Address" required="true">
                 </div>
 
-                <div id="submit-order" class="btn btn-primary">Submit</div>
+                <div id="add-order" class="btn btn-primary">Submit</div>
         </form>
+
+        
     </div>
-    
+
+
+
 </body>
 </html>

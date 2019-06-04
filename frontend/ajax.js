@@ -1,7 +1,4 @@
 $(document).ready(function () {
-
-
-    //bookTitle, bookQuantity, bookPrice, clientName, clientPhoneNum, clientAddress
     
 
     function errorCallback(request, status, error) {
@@ -9,17 +6,29 @@ $(document).ready(function () {
     }
 
     function successCallback(response){        
-        window.location.replace("./users.html");
+        window.location.replace("./orders.html");
     }
 
-
-    $("#submit-order").click(function(){
+    $("#add-order").click(function(){
         var bookTitle = $("#bookTitle").val();
         var bookQuantity = $("#bookQuantity").val();
         var bookPrice = $("#bookPrice").val();
         var clientName = $("#clientName").val();
         var clientPhoneNum = $("#clientPhoneNum").val();
         var clientAddress = $("#clientAddress").val();
+
+        if(!bookTitle){
+            alert("All fields must be filled")
+            return;
+        }
+        if(!clientName){
+            alert("All fields must be filled");
+            return;
+        }
+        if(!clientAddress){
+            alert("All fields must be filled");
+            return;
+        }
 
         $.ajax({
             url:"http://localhost:8080/addClient?bookTitle=" +
@@ -28,7 +37,7 @@ $(document).ready(function () {
             bookPrice + "&clientName=" +
             clientName + "&clientPhoneNum=" +
             clientPhoneNum + "&clientAddress=" + 
-            clientAddress + '"',
+            clientAddress,
   
             type: "POST",
             async: true,
@@ -39,34 +48,37 @@ $(document).ready(function () {
         
     })
 
-    $("#showTable").click(function showList(){
+
+
+    $("#delete-order").click(function(){
+        var orderIdValue = $("#order-id").val();
+        var parsed = $.parseJSON(orderIdValue);
+        console.log(parsed, orderIdValue);
+        
         $.ajax({
-            url: 'http://localhost:8080/clients',
+            url: 'http://localhost:8080/removeClient/' + parsed,
+            type: "DELETE",
+            //next task will just happen when this one complete
+            async: false, 
+            success: window.location.reload(),
+            error: errorCallback
+        })
+
+        
+    })
+
+    $("#submit-order").click(function(){
+        $.ajax({
+            url: 'http://localhost:8080/submitOrderList/',
             type: "GET",
             async: true,
             dataType: 'json',
-            success: successTableCallback,
+            success: window.location.replace("success.html"),
             error: errorCallback
         })
     })
 
-    function successTableCallback(response){
-        
-        var table = $("#usersList");
-        //This line is used when the user click on "Show table", to refresh the users instead of duplicate them.
-        $(".customer-rows").remove();
 
-        $.each(response, customer => {
-                table.append("<tr class='customer-rows'><td>" + "<td>" + response[customer].orderID + "</td>" + response[customer].firstName +
-                "</td><td>" + response[customer].bookTitle + "</td><td>" +
-                response[customer].bookQuantity + "</td><td>" + response[customer].bookPrice + "</td>" +
-                "<td>" + response[customer].clientName + "</td>" +
-                "<td>"+ response[customer].clientPhoneNum + "</td>" + 
-                "<td>" + response[customer].clientAddress + "</tr>")
-
-        });
-
-    }
 
 
 

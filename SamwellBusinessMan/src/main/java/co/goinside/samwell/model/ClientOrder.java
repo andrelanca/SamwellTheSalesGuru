@@ -1,6 +1,9 @@
-package co.goinside.samwell.models;
+package co.goinside.samwell.model;
 
 import java.util.concurrent.atomic.AtomicInteger;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class ClientOrder {
 	
@@ -9,18 +12,16 @@ public class ClientOrder {
 	private Integer orderID;
 	
 	//Book Details
-	
 	private String bookTitle;
 	private int bookQuantity;
 	private double bookPrice;
 	
 	//Client Details
-	
 	private String clientName;
 	private int clientPhoneNum;
 	private String clientAddress;
 	
-	
+	public ClientOrder(){}
 	public ClientOrder(String bookTitle, int bookQuantity, double bookPrice, String clientName, int clientPhoneNum, String clientAddress) {
 		
 		orderID = count.incrementAndGet();
@@ -37,7 +38,7 @@ public class ClientOrder {
 
 
 	
-	//GETTERS & SETTERS 
+	//Getters & Setters
 	
 	public Integer getOrderID() {
 		return orderID;
@@ -109,7 +110,7 @@ public class ClientOrder {
 	}
 
 
-	//ToString
+	//toString
 	
 	@Override
 	public String toString() {

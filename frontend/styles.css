@@ -2,8 +2,47 @@ html, body{
     width: 100%;
 }
 
-#wrapper{
+.wrapper{
     width: 80%;
     margin: 0 auto;
     margin-top: 5%;
+    margin-bottom: 10%; 
+}
+
+#header{
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+}
+
+#header ul {
+    margin-left: 5%;
+}
+
+
+#header ul li{
+    text-decoration: none;
+    list-style: none;
+    display: inline;
+
+
+}
+
+#header ul li a {
+    color: white;
+    display: inline-block;
+    margin: 10px 0 10px 3%;
+}
+
+#delete-field{
+margin-top: 10%;
+}
+
+#submit-order{
+    float: right;
+}
+
+.center-success {
+    text-align: center;
+    margin-top: 10%;
 }
