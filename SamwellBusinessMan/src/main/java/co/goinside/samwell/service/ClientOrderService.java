@@ -9,7 +9,7 @@ import co.goinside.samwell.dao.ClientOrderDao;
 import co.goinside.samwell.model.ClientOrder;
 
 @Service
-public class ClientOrderService {
+public class ClientOrderService implements ClientOrderServiceContract{
 
 	private ClientOrderDao clientOrderDao;
 
@@ -52,4 +52,6 @@ public class ClientOrderService {
 		this.clientOrderDao = clientOrderDao;
 	}
 
+	
+	
 }
